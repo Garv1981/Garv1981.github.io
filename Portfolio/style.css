@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.nav{
+    display:flex;
+    height: 10vh;
+    background-color: rgb(106, 211, 211);
+    justify-content: space-between;
+    align-items: center;
+    padding : 10px;
+}
+
+ul{
+    display: flex;
+    gap : 20px;
+}
+
+ul li {
+    list-style-type: none;
+    font-size: 15px;
+}
