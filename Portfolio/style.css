@@ -22,3 +22,56 @@ ul li {
     list-style-type: none;
     font-size: 15px;
 }
+.main{
+    display:flex;
+    
+    
+}
+.box1{
+    
+    height: 35vh;width: 40vw;
+    margin : 80px;
+    border-radius: 15px;
+    padding: 20px;
+  
+
+}
+.box2{
+    
+    height: 35vh;width: 40vw;
+    margin : 80px;
+    
+}
+
+.box1 h2 , p , button{
+    padding:8px
+}
+
+.box2 img{
+    width: 50%;
+  height: 100%;
+  object-fit: cover;
+  
+  border-radius: 15px;
+}
+.sections {
+   padding : 20px;
+   text-align: center;
+   margin-bottom: 20px;
+   background-color: aqua;
+   
+}
+
+.boxes {
+    display: flex;
+    gap: 20px;
+}
+
+.one, .two, .three {
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 2px solid black;
+    flex: 1;
+    text-align: center;
+    border-radius: 10px;
+}
