@@ -1,3 +1,6 @@
+
+const users = [];
+
 const loginForm = () => {
     const str = `
     <div class="login-form">
@@ -8,35 +11,82 @@ const loginForm = () => {
         <label for="pass">Password</label>
         <input type="password" id="pass" placeholder="Enter your password">
 
-        <p><button onclick="showHome()">Submit</button></p>
+        <p><button onclick="loginUser()">Submit</button></p>
         <p><button onclick="registerForm()">Create Account</button></p>
     </div>`;
     
     root.innerHTML = str;
-}
-
+};
 
 const registerForm = () => {
-     const str = `<div>
-    <h3>Registration Form</h3>
-    <label for="email">Email</label>
-        <input type="email" id="email" placeholder="garv@gmail.com">
+    const str = `
+    <div>
+        <h3>Registration Form</h3>
+        <label for="regEmail">Email</label>
+        <input type="email" id="regEmail" placeholder="garv@gmail.com">
 
-        <label for="pass">Password</label>
-        <input type="password" id="pass" placeholder="Enter your password">
+        <label for="regPass">Password</label>
+        <input type="password" id="regPass" placeholder="Enter your password">
 
-         <label for="cnfpass">Confirm Password</label>
-        <input type="password">
-    <p><button onclick='loginForm()'>Submit</button></p>
-    <p><button onclick='loginForm()'>Already a member? Login here...</button></p>
-    `
-    root.innerHTML = str + "</div>"
-}
+        <label for="cnfPass">Confirm Password</label>
+        <input type="password" id="cnfPass" placeholder="Confirm your password">
 
-const showHome = () => {
-     const str = `<div>
-    <h3>Welcome</h3>
-    <p><button onclick='loginForm()'>Logout</button></p>
-    `
-    root.innerHTML = str + "</div>"
-}
+        <p><button onclick='registerUser()'>Submit</button></p>
+        <p><button onclick='loginForm()'>Already a member? Login here...</button></p>
+    </div>`;
+    
+    root.innerHTML = str;
+};
+
+const showHome = (email) => {
+    const str = `
+    <div>
+        <h3>Welcome, ${email}!</h3>
+        <p><button onclick='loginForm()'>Logout</button></p>
+    </div>`;
+    
+    root.innerHTML = str;
+};
+
+const registerUser = () => {
+    const email = document.getElementById("regEmail").value;
+    const pass = document.getElementById("regPass").value;
+    const cnfPass = document.getElementById("cnfPass").value;
+
+    if (!email || !pass || !cnfPass) {
+        alert("Please fill all fields.");
+        return;
+    }
+
+    if (pass !== cnfPass) {
+        alert("Passwords do not match.");
+        return;
+    }
+
+    const exists = users.some(user => user.email === email);
+    if (exists) {
+        alert("User already registered.");
+        return;
+    }
+
+    users.push({ email, pass });
+    alert("Registered successfully!");
+    loginForm();
+};
+
+const loginUser = () => {
+    const email = document.getElementById("email").value;
+    const pass = document.getElementById("pass").value;
+
+    const user = users.find(user => user.email === email && user.pass === pass);
+
+    if (user) {
+        showHome(email);
+    } else {
+        alert("Invalid email or password.");
+    }
+};
+
+
+loginForm();
+
