@@ -82,8 +82,42 @@
 // }
 // main(()=>f1(5));
 
-const points = [10,2,5,7,8]
+// const points = [10,2,5,7,8]
 
-points.forEach((val , idx)=>{
-    console.log(val , idx)
-})
+// points.map((val , idx)=>{
+//     console.log(val , idx)
+// })
+
+// const arr = 
+// points.map((val)=>{
+//     return val + 5;
+// })
+
+// console.log(arr)
+
+ 
+
+// const result = points.reduce((sum , val)=>{
+//     return sum + val;
+// },0);
+// console.log(result);
+
+// import and export
+
+// import {add , sub} from "./calc.mjs"
+// const result1 = add(5,4);
+// console.log(result1)
+
+// const result2 = sub(5,4);
+// console.log(result2)
+
+// let marks = {
+//     english : 40
+// }
+// let newmarks = {...marks,maths : 90}
+// console.log(newmarks)
+
+// console.log(JSON.stringify(marks))
+// console.log(JSON.parse(JSON.stringify(marks)))
+
+//promises
