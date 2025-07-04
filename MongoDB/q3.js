@@ -34,3 +34,13 @@
 
 // db.students.find({'comments.user' : "lily"});
 // db.students.find({'comments.user' : "lily" , 'metadata.views' : {$gt : 50}});
+
+
+// $all and $elemMatch
+
+//db.comments.find({'comments.user' :{$all :["vinod","alice"]}})  // to check if an array contains all the specified values
+
+//Multiple conditions must be true for a single object inside an array
+
+//db.comments.find({'comments':{$elemMatch : {'user' : 'vinod' , 'text' : 'awesome article'}}})
+
