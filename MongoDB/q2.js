@@ -109,3 +109,68 @@
 //     }
 //   }
 // ])
+
+// db.sales.aggregate([
+//     {$match  : {quantity : 5}},
+//     {$group : {
+//         _id : "$quantity",
+//         priceavg : {$avg : '$price'}
+//     }}
+// ])
+
+// db.students.aggregate([
+//     {$sort : {age : 1}}
+// ])
+
+// db.users.aggregate([
+//   {
+//     $project: {
+//       fullName: { $concat: ["$firstName", " ", "$lastName"] },
+//       age: 1,
+//       email: 0
+//     }
+//   }
+// ])
+
+//Bhai $unwind ka use hota hai array ko todne ke liye – yani har array element ko ek alag document bana deta hai.
+
+// [
+//   {
+//     "_id": 1,
+//     "customer": "Garv",
+//     "items": ["pen", "book", "eraser"]
+//   }
+// ]
+
+// db.orders.aggregate([
+//   { $unwind: "$items" }
+// ])
+
+// [
+//   { "_id": 1, "customer": "Garv", "items": "pen" },
+//   { "_id": 1, "customer": "Garv", "items": "book" },
+//   { "_id": 1, "customer": "Garv", "items": "eraser" }
+// ]
+
+//if we use addtoset instead of push , then we will not get any same data 
+
+//$size to count the numver if items present in the array
+
+//$filter 
+
+// db.students.aggregate([
+//   {
+//     $project: {
+//       name: 1,
+//       passedScores: {
+//         $filter: {
+//           input: "$scores",
+//           as: "score",
+//           cond: { $gte: ["$$score", 60] }
+//         }
+//       }
+//     }
+//   }
+// ])
+
+// it will return all the values in array except smallet than 60
